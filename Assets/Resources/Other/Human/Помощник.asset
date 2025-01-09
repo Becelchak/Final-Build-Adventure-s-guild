@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97053b8f2baa45489c5855e4d35f4c6, type: 3}
+  m_Name: "\u041F\u043E\u043C\u043E\u0449\u043D\u0438\u043A"
+  m_EditorClassIdentifier: 
+  name: "\u041F\u043E\u043C\u043E\u0449\u043D\u0438\u043A"
+  actions:
+  - {fileID: 11400000, guid: 05a29fd2104a2e2479acff4ff31b06ce, type: 2}
+  - {fileID: 11400000, guid: 65cce45b4fce0494191b751006c9049d, type: 2}
+  - {fileID: 11400000, guid: 5ea0dcbd22782774280ab3c214f02941, type: 2}
+  - {fileID: 11400000, guid: 2359bbe4151df9240a209a3f15e2c814, type: 2}
+  - {fileID: 11400000, guid: cfae4599154f82b4fab39ac3b9c19afc, type: 2}
+  tools:
+    _serializedList:
+    - Key: Slot 1
+      Value: {fileID: 0}
+    - Key: Slot 2
+      Value: {fileID: 0}
+  riskTool: {fileID: 0}
+  isCharacter: 0
+  availableInQuests: []
+  isCustomer: 0
+  isTarget: 0
+  isTO: 0
+  isFalseTarget: 0

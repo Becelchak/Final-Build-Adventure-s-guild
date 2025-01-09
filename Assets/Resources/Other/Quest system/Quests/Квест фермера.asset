@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd237cebcdf5f74ea24dd7e21ba4b75, type: 3}
+  m_Name: "\u041A\u0432\u0435\u0441\u0442 \u0444\u0435\u0440\u043C\u0435\u0440\u0430"
+  m_EditorClassIdentifier: 
+  name: "\u041A\u0432\u0435\u0441\u0442 \u0444\u0435\u0440\u043C\u0435\u0440\u0430"
+  description: "\u0423\u0431\u0440\u0430\u0442\u044C \u0443\u0440\u043E\u0436\u0430\u0439
+    \u0441 \u043F\u043E\u043B\u0435\u0439 \u0444\u0435\u0440\u043C\u0435\u0440\u0430"
+  hourInDay: 12
+  locations:
+  - {fileID: 11400000, guid: 4e08be85f6bbd5946a57d3e2cf928a1e, type: 2}
+  - {fileID: 11400000, guid: 9d8e06a522513ce4ca5ccf62fadcf55f, type: 2}
+  - {fileID: 11400000, guid: 16c776540b3cc364bbc677ee750db8d6, type: 2}
+  characters:
+  - {fileID: 11400000, guid: 982ef485f065bab44b5c6f60dcd1791a, type: 2}
+  targets: []
+  tasks: []
+  tools:
+  - {fileID: 11400000, guid: db7c2eb7086a7364ebf9736c5c10d831, type: 2}
+  - {fileID: 11400000, guid: 0c342a7c43ed9104ea03af95eed71596, type: 2}
+  - {fileID: 11400000, guid: 295d28a25ddc85f458cb1d1a8bdcda5d, type: 2}
+  - {fileID: 11400000, guid: 989965ce8bc9c6a4b9717e7a888ff7eb, type: 2}
+  UV:
+  - {fileID: 11400000, guid: b4056bbc40f88cb40bded78222d6096d, type: 2}
+  questions: {fileID: 11400000, guid: b0869ccaf5983fd48b4b6b883753fb9a, type: 2}

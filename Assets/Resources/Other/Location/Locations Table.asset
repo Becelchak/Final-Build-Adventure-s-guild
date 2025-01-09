@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d758aa4599cd904182a2087b1b546a1, type: 3}
+  m_Name: Locations Table
+  m_EditorClassIdentifier: 
+  table:
+  - {fileID: 11400000, guid: 16c776540b3cc364bbc677ee750db8d6, type: 2}
+  - {fileID: 11400000, guid: 4e08be85f6bbd5946a57d3e2cf928a1e, type: 2}
+  - {fileID: 11400000, guid: be4b461c6976c494f8b5937393eaf8a1, type: 2}
+  - {fileID: 11400000, guid: 9d8e06a522513ce4ca5ccf62fadcf55f, type: 2}
