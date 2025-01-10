@@ -3,7 +3,28 @@ guid: e7344473a34c7fe4a951c83df516030f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - humanTable: {fileID: 11400000, guid: b1b81c1b53a51ce438a4c7f1b451ca97, type: 2}
+  - characters: {fileID: 11400000, guid: 82e2d1a1d6dcb324fbe64f176c6a41bf, type: 2}
+  - animals: {fileID: 11400000, guid: 48fa8ea3d769aee47a03ed3eb87cb525, type: 2}
+  - actions: {fileID: 11400000, guid: 8c91823c1f196e3468731270b44231f0, type: 2}
+  - questsTable: {fileID: 11400000, guid: 49b7dd5fa0010484babaafdeee92e2c1, type: 2}
+  - toolNeutralizationTable: {fileID: 11400000, guid: bce9a08c38eea954fb3a6e240e4f8c5e,
+      type: 2}
+  - toolTable: {fileID: 11400000, guid: a0d2725e4ce256743aee81a1d74ea2f0, type: 2}
+  - locationTable: {fileID: 11400000, guid: 7d44d2c6b95cc5748ac663671b012a8c, type: 2}
+  - TAOTable: {fileID: 11400000, guid: 6c7cdbb305ea7ad48808511e40c799d6, type: 2}
+  - toolNeutralization: {instanceID: 0}
+  - TAO: {instanceID: 0}
+  - giveAction: {instanceID: 0}
+  - threat: {instanceID: 0}
+  - opportunity: {instanceID: 0}
+  - needAction: {instanceID: 0}
+  - neutralizer: {instanceID: 0}
+  - trigger: {instanceID: 0}
+  - toolCondition: {instanceID: 0}
+  - toolNeutralizerCondition: {instanceID: 0}
+  - "\u0441ondition": {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
