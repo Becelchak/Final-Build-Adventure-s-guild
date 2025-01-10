@@ -46,7 +46,7 @@ public class ListQuestionsInterview
 
         // Разбор данных из типа string в Dictionary<int,string>, с помощью методов
         DictAllQuestions = getDictFromStr(allQuestions);
-        DictAllAnswers = getDictFromStr(allQuestions);
+        DictAllAnswers = getDictFromStr(allAnswers);
     }
 
     public Dictionary<int, string> getDictFromStr(string dict)
@@ -61,4 +61,5 @@ public class ListQuestionsInterview
         }
         return result;
     }
+    public string[] getFullAnswersFromStrDict(string answer) => answer.Split("|");
 }

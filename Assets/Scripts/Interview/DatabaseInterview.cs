@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DatabaseInterview : MonoBehaviour
+public class DatabaseInterview: MonoBehaviour
 {
     // Нужен string объект для вкладки "Подготовка"
     public string StartingText { get; private set; }
@@ -10,6 +10,9 @@ public class DatabaseInterview : MonoBehaviour
     public List<ListQuestionsInterview> AllListQuestions { get; private set; }
     public List<QuestInterview> AllQuests { get; private set; }
     public GameObject LastPage { get; set; }
+    public int SelectQuestionKey { get; set; }
+    public Dictionary<int, int> DictKeySelectedQustion { get; set; }
+    public int CountQuestionsReplacement { get; set; }
     public bool IsQuestCamOn { get; set; }
     public bool IsNewGame { get; set; }
     public bool IsInterview { get; set; }
@@ -27,6 +30,7 @@ public class DatabaseInterview : MonoBehaviour
         IsQuestCamOn = true;
         IsNewGame = false;
         IsInterview = false;
+        SelectQuestionKey = -1;
 
         // Функции заполнения данных
         AddListQuestions();
@@ -108,8 +112,14 @@ public class DatabaseInterview : MonoBehaviour
             ));
         AllListQuestions.Add(new ListQuestionsInterview(
             AllListQuestions.Count,
-            "",
-            ""
+            "Вопрос 1;" +
+            "Вопрос 2;" +
+            "Вопрос 3;" +
+            "Вопрос 4",
+            "Ответ 1;" +
+            "Ответ 2;" +
+            "Ответ 3;" +
+            "Ответ 4"
             ));
     }
     // Update is called once per frame

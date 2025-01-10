@@ -81,12 +81,17 @@ public class NavPageButtons : MonoBehaviour
         // также это поможет вернуться при переходе, между камерами.
 
         NavData.CurrentPage.SetActive(false);
-        Debug.Log($"Nav.CurPage = {NavData.CurrentPage}");
-        //Db.LastPage = NavData.CurrentPage;
-        //NavData.CurrentPage = nextPage;
 
-        //Debug.Log($"lastPage = {Db.LastPage}");
-        //Debug.Log($"NavData.CurPage = {NavData.CurrentPage}");
+        Db.LastPage = NavData.CurrentPage;
+        NavData.CurrentPage = nextPage;
+
+        //Debug.Log($"ClickOnPage = {NavData.CurrentPage}");
+        //Debug.Log($"Db.LastPage = {Db.LastPage}");
+        //Debug.Log($"Nav.CurPage = {NavData.CurrentPage}");
+
+        // Блок для отключения Canvas - Overlay, чтобы работали btn-ы
+        GameObject canvOver = Db.transform.parent.transform.GetChild(2).gameObject;
+        GameObject canvQuest = Db.transform.parent.transform.GetChild(1).gameObject;
 
         // Работает
         if (Db.IsQuestCamOn)
@@ -95,6 +100,11 @@ public class NavPageButtons : MonoBehaviour
             LinkQuestCamera.SetActive(true);
             LinkOverlayCamera.SetActive(false);
             Db.IsQuestCamOn = false;
+            // Отключение Over канвы
+            canvOver.SetActive(false);
+            canvQuest.SetActive(true);
+            //Debug.Log($"canvOver = {canvOver.activeInHierarchy}");
+            //Debug.Log($"canvQuest = {canvQuest.activeInHierarchy}");
         }
         else
         {
@@ -102,6 +112,9 @@ public class NavPageButtons : MonoBehaviour
             LinkQuestCamera.SetActive(false);
             LinkOverlayCamera.SetActive(true);
             Db.IsQuestCamOn = true;
+            // Отключение Quest канвы
+            canvOver.SetActive(true);
+            canvQuest.SetActive(false);
         }
     }
     /// <summary>
@@ -115,12 +128,96 @@ public class NavPageButtons : MonoBehaviour
     public void OnQuestClick(TextMeshProUGUI tmp)
     {
         // Выделяем переменные для работы с нумерацией квеста
-        // (Забрать номер из названия, но попадаем к gameObject-у по transform.parent)
+        // (Забрать номер из названия "Quest - 0" и попадаем к gameObject-у по transform.parent)
         string[] splitName = tmp.gameObject.transform.parent.gameObject.name.Split(' ');
         int takeNumQuest = int.Parse(splitName[splitName.Length - 1]);
 
         // Сохраняем текущий нажатый квест, для вывода справа, на страницу Choose Quest
         Db.CurQuest = Db.AllQuests[takeNumQuest];
+
+        // Также обновляем список выбранных вопросов, для выбранного квеста (Без всяких доп. ластов объектов)
+        Db.DictKeySelectedQustion.Clear();
+        Db.CountQuestionsReplacement = 0;
+
+        // Записываем 1-ые 4-е вопроса, для будущей работы механики замены
+        // (Чтобы начальные, не выбранные вопросы, не заменялись сами на себя)
+        for (int i = 0; i < 4; i++)
+        {
+            Db.DictKeySelectedQustion.Add(Db.DictKeySelectedQustion.Count(), i);
+            //Debug.Log($"Dict[{i}] = {Db.DictKeySelectedQustion[i]}");
+        }
+    }
+    /// <summary>
+    /// Функция обработки клика на вопрос, для сохранения Uid вопроса в квесте.
+    /// </summary>
+    /// <param name="tmp">Берём TMP объект, чтобы было проще обращаться к его .name компоненту</param>
+    public void OnQuestionClick(GameObject btn)
+    {
+        string[] str = btn.name.Split(" ");
+        Db.SelectQuestionKey = int.Parse(str[1]);
+
+        // Проверка перед добавлением ключа к Dictionary
+        bool IsNotFirstKey = false;
+        foreach (var val in Db.DictKeySelectedQustion.Values)
+        {
+            if (val == Db.SelectQuestionKey)
+                IsNotFirstKey = true;
+        }
+        // Добавляем, если это уникальный ключ
+        if (!IsNotFirstKey)
+            Db.DictKeySelectedQustion.Add(Db.DictKeySelectedQustion.Count, Db.SelectQuestionKey);
+
+        // Инфо для дебагера (тесты)
+        //Debug.Log($"Dict.Count() = {Db.DictKeySelectedQustion.Count}");
+
+        // Получаем нужный список вопросов
+        int keyListQuestions = Db.CurQuest.ID_ListQuestions;
+        var curListQuestions = Db.AllListQuestions[keyListQuestions];
+
+        // Получаем нужный нам Count-ры и вычисляем разницу, для условия
+        int countSelectDict = Db.DictKeySelectedQustion.Count();
+        int countQuestionsDict = curListQuestions.DictAllQuestions.Count();
+        int mathDifferenceCountDicts = (countQuestionsDict - 4);
+
+        // Если счётчик замены не достиг разницы mathDifferenceCountDicts
+        // то мы делаем замену вопроса в списке вопросов
+        // иначе вопрос скрывается
+        if (Db.CountQuestionsReplacement < mathDifferenceCountDicts)
+        {
+            bool IsFoundNewQuestions = false;
+
+            // Где-то тут ошибка в работе словарей... Надо перепроверить...
+
+            // Делаем замену названия кнопки и вопроса
+            foreach (var val in Db.DictKeySelectedQustion.Values)
+            {
+                foreach (var item in curListQuestions.DictAllQuestions)
+                {
+                    if (item.Key != val)
+                    {
+                        // Инфо для дебагера (тесты)
+                        //Debug.Log($"item.Key = {item.Key}");
+                        //Debug.Log($"val = {val}");
+                        // Смена имени + ключ вопроса
+                        btn.name = "Question " + item.Key;
+                        // Получаем tmp obj и делаем смену вопроса
+                        var tmp = btn.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+                        tmp.text = item.Value;
+
+                        Db.CountQuestionsReplacement++;
+                        IsFoundNewQuestions = true;
+                        break;
+                    }
+                }
+                // Останавливаем работу цикла, после нахождения замены
+                if (IsFoundNewQuestions)
+                    break;
+            }
+        }
+        else
+        {
+            btn.SetActive(false);
+        }
     }
 
     // Update is called once per frame
