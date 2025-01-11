@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.VersionControl;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using AYellowpaper.SerializedCollections;
 using UnityEngine.UI;
@@ -87,7 +88,7 @@ public class ObjectCreatorButtonCreate : MonoBehaviour
     {
         tableObjects = GameObject.Find("ContainerTableObjectsMain").GetComponent<TableCanvasContainer>();
     }
-
+#if UNITY_EDITOR
     public void CreateObject(TMP_Dropdown dropdownType)
     {
         var typeObject = dropdownType.options[dropdownType.value].text;
@@ -184,6 +185,7 @@ public class ObjectCreatorButtonCreate : MonoBehaviour
 
         tableObjects.RefreshTable();
     }
+#endif
 
     public void ChangeName(TMP_InputField newName)
     {

@@ -11,7 +11,7 @@ public class ToolsTable : Table
 
     public void AddObject(string assetName)
     {
-        var toolNew = AssetDatabase.LoadAssetAtPath<InanimateObject>($"Assets/Resources/Other/InanimateObject/{assetName}.asset");
+        var toolNew = Resources.Load<InanimateObject>($"Other/InanimateObject/{assetName}");
         if (!table.Contains(toolNew))
         {
             table.Add(toolNew);

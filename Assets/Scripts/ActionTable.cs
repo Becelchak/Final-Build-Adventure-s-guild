@@ -10,7 +10,7 @@ public class ActionTable : Table
 
     public void AddObject(string assetName)
     {
-        var actionNew = AssetDatabase.LoadAssetAtPath<Action>($"Assets/Resources/Other/Action/{assetName}.asset");
+        var actionNew = Resources.Load<Action>($"Other/Action/{assetName}");
         if (!table.Contains(actionNew))
         {
             table.Add(actionNew);

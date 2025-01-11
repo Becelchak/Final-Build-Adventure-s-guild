@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd237cebcdf5f74ea24dd7e21ba4b75, type: 3}
+  m_Name: "\u041A\u0432\u0435\u0441\u0442 \u043E\u0445\u043E\u0442\u043D\u0438\u043A\u0430"
+  m_EditorClassIdentifier: 
+  name: "\u041A\u0432\u0435\u0441\u0442 \u043E\u0445\u043E\u0442\u043D\u0438\u043A\u0430"
+  description: "\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0434\u0432\u0443\u0445
+    \u0437\u0430\u0439\u0446\u0435\u0432"
+  hourInDay: 14
+  locations:
+  - {fileID: 11400000, guid: 16c776540b3cc364bbc677ee750db8d6, type: 2}
+  - {fileID: 11400000, guid: 9d8e06a522513ce4ca5ccf62fadcf55f, type: 2}
+  - {fileID: 11400000, guid: be4b461c6976c494f8b5937393eaf8a1, type: 2}
+  characters: []
+  targets: []
+  tasks: []
+  tools: []
+  UV: []
+  questions: {fileID: 11400000, guid: 6f30207319af8b646a066dda07af6c7d, type: 2}

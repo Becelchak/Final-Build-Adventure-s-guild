@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7e6ff2366be58546883b7053646ad72, type: 3}
+  m_Name: "\u041A\u043E\u0440\u0437\u0438\u043D\u0430"
+  m_EditorClassIdentifier: 
+  name: "\u041A\u043E\u0440\u0437\u0438\u043D\u0430"
+  inanimateType: 0
+  locations:
+  - {fileID: 11400000, guid: 16c776540b3cc364bbc677ee750db8d6, type: 2}
+  action: {fileID: 11400000, guid: 5ea0dcbd22782774280ab3c214f02941, type: 2}
+  buffCoefficient: 4
+  threat: {fileID: 0}
+  opportunity: {fileID: 0}
+  needAction: {fileID: 11400000, guid: 5ea0dcbd22782774280ab3c214f02941, type: 2}
+  slots: 1
+  numberOfAvailable: 5

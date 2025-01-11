@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 [CreateAssetMenu(menuName = "Other objects/ Action")]
 public class Action : ScriptableObject

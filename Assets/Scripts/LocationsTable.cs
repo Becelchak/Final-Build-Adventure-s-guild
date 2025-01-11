@@ -9,7 +9,7 @@ public class LocationsTable : Table
     [SerializeField] private List<Location> table;
     public void AddLocation(string assetName)
     {
-        var locationNew = AssetDatabase.LoadAssetAtPath<Location>($"Assets/Resources/Other/Location/{assetName}.asset");
+        var locationNew = Resources.Load<Location>($"Other/Location/{assetName}");
         if (!table.Contains(locationNew))
         {
             table.Add(locationNew);

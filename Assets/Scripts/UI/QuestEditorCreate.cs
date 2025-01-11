@@ -8,7 +8,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
-using static UnityEditor.FilePathAttribute;
 using static UnityEngine.GraphicsBuffer;
 
 public class QuestEditorCreate : MonoBehaviour
@@ -32,6 +31,8 @@ public class QuestEditorCreate : MonoBehaviour
     [SerializeField] private List<Location> locations = new List<Location>();
     [SerializeField] private List<InanimateObject> tools = new List<InanimateObject>();
     [SerializeField] private List<ThreatAndOpportunity> tao = new List<ThreatAndOpportunity>();
+
+#if UNITY_EDITOR
     public void CreateNewQuest()
     {
         var newQuest = new Quest(name, description, hourInDay, locations, targets, tasks, tools, tao, questions);
@@ -46,6 +47,7 @@ public class QuestEditorCreate : MonoBehaviour
 
         }
     }
+#endif
 
     public void ChangeNameQuest(TMP_InputField newName)
     {
@@ -136,7 +138,7 @@ public class QuestEditorCreate : MonoBehaviour
     public void AddQuestionTable(TMP_Dropdown dropdown)
     {
         var nameTable = dropdown.options[dropdown.value].text;
-        var table = AssetDatabase.LoadAssetAtPath<QuestionTable>($"Assets/Resources/Other/Quest system/Questions/{nameTable}.asset");
+        var table = Resources.Load<QuestionTable>($"Assets/Resources/Other/Quest system/Questions/{nameTable}.asset");
         if (table != null)
             questions = table;
     }

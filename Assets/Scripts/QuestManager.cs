@@ -28,7 +28,7 @@ public class QuestManager : MonoBehaviour
                 rewardContent.text = "7000 золотых монет";
                 customerName.text = "Фермер";
 
-                var image1 = AssetDatabase.LoadAssetAtPath<Texture>("Assets/Resources/Material/PhotoBackground.png");
+                var image1 = Resources.Load<Texture>("Material/PhotoBackground");
                 customerPhoto.texture = image1;
                 break;
             case QuestName.Pharmacist:
@@ -37,7 +37,7 @@ public class QuestManager : MonoBehaviour
                 rewardContent.text = "8050 золотых монет";
                 customerName.text = "Аптекарь";
 
-                var image2 = AssetDatabase.LoadAssetAtPath<Texture>("Assets/Resources/Material/PhotoDefault.png");
+                var image2 = Resources.Load<Texture>("Material/PhotoDefault");
                 customerPhoto.texture = image2;
                 break;
             default:
