@@ -18,6 +18,19 @@ EditorBuildSettings:
     path: Assets/Scenes/VN_1_Interview.unity
     guid: 5e7e671a1994ec240882bb60dbc9ad97
   - enabled: 1
-    path: Assets/Scenes/SampleScenePlanir.unity
-    guid: a0b370e4f4c5bc347aa7fe91ebdae3b6
+    path: Assets/Scenes/MainScene.unity
+    guid: 45cea6ed33eab6145ab75fedac162cf6
+  - enabled: 1
+    path: Assets/Scenes/MapScene.unity
+    guid: 928edf55be4b8ef43ad4bc143e0bd396
+  - enabled: 1
+    path: Assets/Scenes/TasksScene.unity
+    guid: f44db1ccfe3d7ff45b87693d15592211
+  - enabled: 1
+    path: Assets/Scenes/InstrumentsScene.unity
+    guid: 1ae463e3300861d409b3c7c3a856934d
+  - enabled: 1
+    path: Assets/Scenes/SampleSceneNavig.unity
+    guid: db0af545e56e481459e5116c867bc3ac
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
