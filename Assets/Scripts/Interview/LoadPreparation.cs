@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoadPreparation : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class LoadPreparation : MonoBehaviour
     GameObject Content;
     [SerializeField]
     GameObject ButtonsContinue;
+    [SerializeField]
+    ChangeManager ChangeManagerObject;
     //
     string[] result { get; set; }
     //
@@ -36,24 +40,41 @@ public class LoadPreparation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Db.IsNewGame)
+        if (!Db.IsEndInterview)
         {
-            result = Db.StartingText.Split(";");
+            if (!Db.IsNewGame)
+            {
+                result = Db.StartingText.Split(";");
 
-            head.text = result[0];
-            content.text = result[1];
-            btn.alignment = TextAlignmentOptions.Center;
-            btn.text = "Начать новую игру";
+                head.text = result[0];
+                content.text = result[1];
+                btn.alignment = TextAlignmentOptions.Center;
+                btn.text = "Начать новую игру";
 
-            Db.IsNewGame = true;
+                Db.IsNewGame = true;
+            }
+            if (Db.IsInterview)
+            {
+                result = Db.PreparationText.Split(";");
+                head.text = result[0];
+                content.text = result[1];
+                btn.alignment = TextAlignmentOptions.MidlineRight;
+                btn.text = "Продолжить";
+            }
         }
-        if (Db.IsInterview)
+        else
         {
-            result = Db.PreparationText.Split(";");
+            result = Db.EndInterviewText.Split(";");
             head.text = result[0];
             content.text = result[1];
+            content.alignment = TextAlignmentOptions.Baseline;
+            //btn.enabled = false;
             btn.alignment = TextAlignmentOptions.MidlineRight;
-            btn.text = "Продолжить";
+            btn.text = "Перейти к журналу";
+
+            var buttreal = btn.GetComponentInParent<Button>();
+            buttreal.onClick.RemoveAllListeners();
+            buttreal.onClick.AddListener(() => ChangeManagerObject.ChangeScene("QuestJournal"));
         }
     }
     public void Updater()
